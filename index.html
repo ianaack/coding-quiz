@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Coding Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+
+  <body>
+    <!--Header Asset-->
+    <header class="header">
+      <!--View Highscores Button-->
+      <div class="high-score">
+        <a href="./highscore.html">
+          <button>View High Scores</button>
+        </a>
+      </div>
+
+      <!--Timer Display-->
+      <div class="timer">
+        <h2 class="timer-display">Time:</h2>
+      </div>
+    </header>
+
+    <!--Main Page Setup-->
+    <main class="page-content" id="page-content">
+      <section class="start-page">
+        <!--Coding Quiz Challenge Heading-->
+        <h1 class="start-title">Coding Quiz Challenge</h1>
+        <!--Game Description-->
+        <p class="instructions">
+          Try to answer the following code-related questions within the time
+          limit. Keep in mind that incorrect answers will penalize your
+          score/time by ten seconds!
+        </p>
+        <!--Start Quiz Button-->
+        <button class="start-btn">Start Game</button>
+      </section>
+
+      <section class="quiz">
+        <!--Question Header-->
+        <div class="questions-hidden">
+          <h2 id="question"></h2>
+        </div>
+        <!--Answer Options-->
+        <div class="answers-hidden">
+          <button class="choices" id="answer-1"></button>
+          <button class="choices" id="answer-2"></button>
+          <button class="choices" id="answer-3"></button>
+          <button class="choices" id="answer-4"></button>
+        </div>
+        <!--Answer Feedback-->
+        <div class="feedback">
+          <h3 id="feedback"></h3>
+        </div>
+      </section>
+
+      <section class="submit-highscore">
+        <!--Submit High Score Page-->
+        <h1 class="highscore-title">All done!</h1>
+        <p class="final-score"></p>
+        <form action="./highscore.html">
+          <label for="initials">Enter Initials:</label>
+          <input type="text" name="player-initials" />
+          <input type="submit" id="initials" name="name" />
+        </form>
+      </section>
+
+      <section class="view-highscores-hidden"></section>
+    </main>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

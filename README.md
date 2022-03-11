@@ -6,7 +6,7 @@ This JavaScript project is a timed quiz used to test students knowledge of JavaS
 
 When the student is ready, they click the START button and a timer for the quiz starts counting down.
 
-If the student answers correctly they get 5 points added to their score. However, if they answer incorrectly 5 seconds is deducted from the timer.
+If the student answers correctly they get 5 points added to their score. However, if they answer incorrectly 10 seconds is deducted from the timer.
 
 When all the questions have been answered, or the timer reaches 0, the game is over.
 
