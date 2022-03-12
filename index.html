@@ -13,9 +13,7 @@
     <header class="header">
       <!--View Highscores Button-->
       <div class="high-score">
-        <a href="./highscore.html">
-          <button>View High Scores</button>
-        </a>
+        <a href="./highscore.html"> View High Scores </a>
       </div>
 
       <!--Timer Display-->
@@ -32,8 +30,8 @@
         <!--Game Description-->
         <p class="instructions">
           Try to answer the following code-related questions within the time
-          limit. Keep in mind that incorrect answers will penalize your
-          score/time by ten seconds!
+          limit. Keep in mind that incorrect answers will penalize your score &
+          time by ten seconds!
         </p>
         <!--Start Quiz Button-->
         <button class="start-btn">Start Game</button>
@@ -59,16 +57,14 @@
 
       <section class="submit-highscore">
         <!--Submit High Score Page-->
-        <h1 class="highscore-title">All done!</h1>
+        <h2 class="highscore-title">All done!</h1>
         <p class="final-score"></p>
-        <form action="./highscore.html">
-          <label for="initials">Enter Initials:</label>
-          <input type="text" name="player-initials" />
+        <form action="./highscore.html" class="submit-form">
+          <label for="initials" class="initials">Enter Initials:</label>
+          <input type="text" name="player-initials" class="submit-field" />
           <input type="submit" id="initials" name="name" />
         </form>
       </section>
-
-      <section class="view-highscores-hidden"></section>
     </main>
 
     <script src="./assets/js/script.js"></script>
