@@ -48,6 +48,7 @@ header h2 {
   justify-content: flex-end;
 }
 
+/* Main Page Container*/
 .page-content {
   flex: 1;
   display: flex;
@@ -58,6 +59,7 @@ header h2 {
   text-align: center;
 }
 
+/* Start Quiz Page*/
 .start-title {
   color: var(--primary);
   margin-bottom: 5px;
@@ -86,6 +88,8 @@ header h2 {
 .start-btn:hover {
   background-color: var(--primary);
 }
+
+/* Quiz Page Style*/
 .quiz {
   width: 50%;
   margin: auto;
@@ -96,7 +100,7 @@ header h2 {
   margin: auto;
 }
 
-.choices {
+.answer-container {
   display: flex;
   font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
@@ -107,7 +111,7 @@ header h2 {
   margin: 5px 0 5px 0;
 }
 
-.choices:hover {
+.answer-container:hover {
   background-color: var(--primary);
 }
 
@@ -118,6 +122,8 @@ header h2 {
   width: 50%;
   margin: auto;
 }
+
+/*Submit High Score Page Style*/
 
 .highscore-title {
   color: var(--primary);
@@ -166,3 +172,5 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: var(--primary);
 }
+
+/* View High Scores Page Style*/

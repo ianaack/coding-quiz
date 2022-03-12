@@ -1,20 +1,15 @@
 // Variables
 var timeLeft = 75;
 var timerEl = document.querySelector(".timer-display");
-var pageContentEl = document.querySelector(".page-content");
 var startPageEl = document.querySelector(".start-page");
 var startTitleEl = document.querySelector(".start-title");
 var startInstructionsEl = document.querySelector(".instructions");
 var startButtonEl = document.querySelector(".start-btn");
 var quizEl = document.querySelector(".quiz");
-var questionsHiddenEl = document.querySelector(".questions-hidden");
-var questionEl = document.getElementById("#question");
-var answersHiddenEl = document.querySelector(".answers-hidden");
-var answer1 = document.getElementById("#answer-1");
-var answer2 = document.getElementById("#answer-2");
-var answer3 = document.getElementById("#answer-3");
-var answer4 = document.getElementById("#answer-4");
-var feedbackEl = document.getElementById("#feedback");
+var questionsEl = document.querySelector(".question-container");
+var optionsEl = document.querySelector(".options");
+var answersEl = document.querySelector(".answer-container");
+var feedbackEl = document.querySelector(".feedback");
 var submitHighscoreEl = document.querySelector(".submit-highscore");
 var highscoreTitleEl = document.querySelector(".highscore-title");
 var finalScoreEl = document.querySelector(".final-score");
@@ -23,16 +18,16 @@ var submitFormEl = document.querySelector(".submit-field");
 var submitButtonEl = document.getElementById("#submit-btn");
 
 // Quiz Array
-var quizEl = [
+var questionsArray = [
   {
-    questionEl: "1. Commonly used data types DO NOT include:",
-    answersHiddenEl: ["1. Strings", "2. Booleans", "3. Alerts", "4. Numbers"],
+    question: "1. Commonly used data types DO NOT include:",
+    options: ["1. Strings", "2. Booleans", "3. Alerts", "4. Numbers"],
     answer: "3. Alerts",
   },
 
   {
-    questionEl: "2. Arrays in JavaScript can be used to store ____.",
-    answersHiddenEl: [
+    question: "2. Arrays in JavaScript can be used to store ____.",
+    options: [
       "1. Numbers and Strings",
       "2. Other Arrays",
       "3. Booleans",
@@ -42,9 +37,9 @@ var quizEl = [
   },
 
   {
-    questionEl:
+    question:
       "3. A very useful tool used during development and debugging for printing content to the debugger is:",
-    answersHiddenEl: [
+    options: [
       "1. JavaScript",
       "2. Terminal/Bash",
       "3. for loops",
@@ -54,9 +49,9 @@ var quizEl = [
   },
 
   {
-    questionEl:
+    question:
       "4. The condition in an if/else statement is enclosed within ____.",
-    answersHiddenEl: [
+    options: [
       "1. Quotes",
       "2. Curly Brackets",
       "3. Parentheses",
@@ -66,34 +61,49 @@ var quizEl = [
   },
 
   {
-    questionEl:
+    question:
       "5. String values must be enclosed within ____ when being assigned to variables.",
-    answersHiddenEl: [
-      "1. Commas",
-      "2. Curly Brackets",
-      "3. Quotes",
-      "4. Parentheses",
-    ],
+    options: ["1. Commas", "2. Curly Brackets", "3. Quotes", "4. Parentheses"],
     answer: "3. Quotes",
   },
 ];
+console.log(questionsArray);
 
-function countdown() {
+function startGame() {
+  startPageEl.style.display = "block";
+  quizEl.style.display = "none";
+  submitHighscoreEl.style.display = "none";
+
   startButtonEl.addEventListener("click", function () {
     var timeInterval = setInterval(function () {
       if (timeLeft > 1) {
-        timerEl.textContent = "Time: " + timeLeft + " seconds remaining";
+        timerEl.textContent = +timeLeft + " seconds remaining";
         timeLeft--;
       } else if (timeLeft === 1) {
-        timerEl.textContent = "Time: " + timeLeft + " second remaining";
+        timerEl.textContent = timeLeft + " second remaining";
         timeLeft--;
       } else {
         timerEl.textContent = "";
         clearInterval(timeInterval);
         submitHighscore();
+        saveScore();
+        return;
       }
     }, 1000);
+    quiz();
   });
 }
 
-countdown();
+function quiz() {
+  startPageEl.style.display = "none";
+  quizEl.style.display = "block";
+  submitHighscoreEl.style.display = "none";
+}
+
+function submitHighscore() {
+  startPageEl.style.display = "none";
+  quizEl.style.display = "none";
+  submitHighscoreEl.style.display = "block";
+}
+
+startGame();

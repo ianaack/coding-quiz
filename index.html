@@ -18,13 +18,13 @@
 
       <!--Timer Display-->
       <div class="timer">
-        <h2 class="timer-display"></h2>
+        <h2 class="timer-display">Time:</h2>
       </div>
     </header>
 
     <!--Main Page Setup-->
     <main class="page-content" id="page-content">
-      <section class="start-page">
+      <section class="start-page" id="intro">
         <!--Coding Quiz Challenge Heading-->
         <h1 class="start-title">Coding Quiz Challenge</h1>
         <!--Game Description-->
@@ -39,15 +39,43 @@
 
       <section class="quiz">
         <!--Question Header-->
-        <div class="questions-hidden">
+        <div class="question-container">
           <h2 id="question"></h2>
         </div>
         <!--Answer Options-->
-        <div class="answers-hidden">
-          <button class="choices" id="answer-1"></button>
-          <button class="choices" id="answer-2"></button>
-          <button class="choices" id="answer-3"></button>
-          <button class="choices" id="answer-4"></button>
+        <div class="options">
+          <div class="row">
+            <div class="col-12">
+              <div class="answer-container">
+                <p class="answer-prefix">A</p>
+                <p class="answer-text" data-answer="a"></p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="answer-container">
+                <p class="answer-prefix">B</p>
+                <p class="answer-text" data-answer="b"></p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="answer-container">
+                <p class="answer-prefix">C</p>
+                <p class="answer-text" data-answer="c"></p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="answer-container">
+                <p class="answer-prefix">D</p>
+                <p class="answer-text" data-answer="d"></p>
+              </div>
+            </div>
+          </div>
         </div>
         <!--Answer Feedback-->
         <div class="feedback">
