@@ -1,5 +1,5 @@
 // Variables
-var startTime = 75;
+var timeLeft = 75;
 var timerEl = document.querySelector(".timer-display");
 var pageContentEl = document.querySelector(".page-content");
 var startPageEl = document.querySelector(".start-page");
@@ -77,3 +77,23 @@ var quizEl = [
     answer: "3. Quotes",
   },
 ];
+
+function countdown() {
+  startButtonEl.addEventListener("click", function () {
+    var timeInterval = setInterval(function () {
+      if (timeLeft > 1) {
+        timerEl.textContent = "Time: " + timeLeft + " seconds remaining";
+        timeLeft--;
+      } else if (timeLeft === 1) {
+        timerEl.textContent = "Time: " + timeLeft + " second remaining";
+        timeLeft--;
+      } else {
+        timerEl.textContent = "";
+        clearInterval(timeInterval);
+        submitHighscore();
+      }
+    }, 1000);
+  });
+}
+
+countdown();
