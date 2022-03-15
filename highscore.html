@@ -9,9 +9,31 @@
   </head>
 
   <body>
-    <!--High Scores Page-->
-    <!--High Scores Table (populated via script.js-->
-    <!--Go Back Button-->
-    <!--Clear Highscores Button (clear script.js array)-->
+    <div class="container">
+      <div id="highscore" class="flex-center flex-column">
+        <h1 id="scoreTitle">All done!</h1>
+        <h2 id="finalScore"></h2>
+        <form>
+          <input
+            type="text"
+            name="initials"
+            id="initials"
+            placeholder="Enter Initials"
+          />
+          <button
+            type="submit"
+            class="submit-btn"
+            id="saveScoreBtn"
+            onclick="saveHighScore(event)"
+            disabled
+          >
+            Submit
+          </button>
+        </form>
+        <a class="btn" href="./game.html">Play Again</a>
+        <a class="btn" href="/index.html">Go Home</a>
+      </div>
+    </div>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>

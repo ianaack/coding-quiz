@@ -78,7 +78,7 @@ startTimer = () => {
     timeLeft--;
     if (timeLeft === 0) {
       clearInterval(timeInterval);
-      saveScore();
+      saveHighScore();
       submitHighscore();
       return;
     }
@@ -110,7 +110,7 @@ choices.forEach((choice) => {
   choice.addEventListener("click", (e) => {
     if (!acceptingAnswers) return;
 
-    acceptingAnswers = false;
+    acceptingAnswers = true;
     var selectedChoice = e.target;
     var selectedAnswer = selectedChoice.dataset["number"];
 
@@ -119,10 +119,8 @@ choices.forEach((choice) => {
 
     if (classToApply === "correct") {
       incrementScore(correctBonus);
-    }
-
-    if (classToApply === "incorrect") {
-      quizTimer(incorrectPenalty);
+    } else {
+      startTimer(incorrectPenalty);
     }
 
     selectedChoice.parentElement.classList.add(classToApply);
@@ -138,6 +136,15 @@ incrementScore = (num) => {
   score += num;
 };
 
-decreaseTime = () => {};
+saveHighScore = (event) => {
+  console.log("clicked the save button");
+  event.preventDefault();
+};
+
+var initials = document.getElementById("initials");
+
+initials.addEventListener("keyup", () => {
+  console.log(initials.value);
+});
 
 startGame();
