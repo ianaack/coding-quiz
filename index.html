@@ -18,79 +18,24 @@
 
       <!--Timer Display-->
       <div class="timer">
-        <h2 class="timer-display">Time: 75 seconds remaining</h2>
+        <h2 class="timer-display" id="timer"></h2>
       </div>
     </header>
 
     <!--Main Page Setup-->
-    <main class="page-content" id="page-content">
-      <section class="start-page" id="intro">
+    <main class="container">
+      <section class="flex-center flex-column" id="intro">
         <!--Coding Quiz Challenge Heading-->
-        <h1 class="start-title">Coding Quiz Challenge</h1>
+        <h1>Coding Quiz Challenge</h1>
         <!--Game Description-->
-        <p class="instructions">
+        <h3 class="instructions text-center">
           Try to answer the following code-related questions within the time
           limit. Keep in mind that incorrect answers will penalize your score &
           time by ten seconds!
-        </p>
+        </h3>
         <!--Start Quiz Button-->
-        <button class="start-btn">Start Game</button>
+        <a class="btn" href="./game.html">Start Game</a>
+        <a class="btn" href="./highscore.html">View High Scores</a>
       </section>
-
-      <section class="quiz">
-        <!--Question Header-->
-        <div class="question-container">
-          <h2 id="question-text"></h2>
-        </div>
-        <!--Answer Options-->
-        <div class="options">
-          <div class="row">
-            <div class="col-12">
-              <div class="answer-container">
-                <p class="answer-text" id="option-a"></p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="answer-container">
-                <p class="answer-text" id="option-b"></p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="answer-container">
-                <p class="answer-text" id="option-c"></p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="answer-container">
-                <p class="answer-text" id="option-d"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--Answer Feedback-->
-        <div class="feedback">
-          <h3 id="feedback"></h3>
-        </div>
-      </section>
-
-      <section class="submit-highscore">
-        <!--Submit High Score Page-->
-        <h2 class="highscore-title">All done!</h1>
-        <p class="final-score"></p>
-        <form action="./highscore.html" class="submit-form">
-          <label for="initials" class="initials">Enter Initials:</label>
-          <input type="text" name="player-initials" class="submit-field" />
-          <input type="submit" id="submit-btn" name="name" />
-        </form>
-      </section>
-    </main>
-
-    <script src="./assets/js/script.js"></script>
   </body>
 </html>
