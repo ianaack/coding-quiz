@@ -55,9 +55,8 @@ h2 {
 
 h3 {
   color: var(--primary);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   font-size: 1.2rem;
-  font-weight: lighter;
 }
 
 /* UTILITIES */
@@ -199,7 +198,7 @@ input::placeholder {
   color: #aaa;
 }
 
-/* View High Scores Page Style*/
+/* SCORE BOARD STYLE*/
 #highScoresList {
   list-style: none;
   padding-left: 0;

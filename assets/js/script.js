@@ -61,60 +61,90 @@ var availableQuestions = [];
 var correctBonus = 5;
 var maxQuestions = 5;
 
+// Start Game function - gets question, resets score, and starts timer
 startGame = () => {
+  // used to determine if there are more questions in the quiz
   questionCounter = 0;
+  // starting score of 0
   score = 0;
+  /* avaibleQuestions array variable IS the questionArray. 
+  this allows us to add as many questions as we like to the question array*/
   availableQuestions = [...questionArray];
+  // call questions function
   getNewQuestion();
+  // call timer function
   startTimer();
 };
 
+/* Timer function - runs a 75 second countdown timer, that dynamically 
+updates every second. When the timer reaches 0, 
+the webpage changes to the highscore submission page*/
 startTimer = () => {
+  // 1 second interval
   var timeInterval = setInterval(quizTimer, 1000);
+
   function quizTimer() {
+    // Time remaining printout
     document.getElementById("timer").innerHTML =
       "Time: " + timeLeft + " seconds remain";
     timeLeft--;
+    // If timer runs out clear the interval, and redirect the user to the score submission page
     if (timeLeft === 0) {
       clearInterval(timeInterval);
-      return;
+      window.location.assign("/highscore.html");
     }
   }
 };
 
+/* Get New Question function - runs if there are more questions to be answered
+Pulls from the question  */
 getNewQuestion = () => {
-  if (availableQuestions.length === 0 || timeLeft === 0) {
+  // if there are no more questions
+  if (availableQuestions.length === 0) {
+    // save score as "mostRecentScore" in localStorage
     localStorage.setItem("mostRecentScore", score);
-    // go to the end page
+    // Takes user to the score submission page
     return window.location.assign("/highscore.html");
   }
 
+  // iterate the question array to pull the next question
   questionCounter++;
+  // randomly pulls the next question, so when a player plays again, the questions are not in the same order
   var questionIndex = Math.floor(Math.random() * availableQuestions.length);
+  // defines the currentQuestion
   currentQuestion = availableQuestions[questionIndex];
+  // prints question from array to element within the HTML
   question.textContent = currentQuestion.question;
 
+  // prints choice to appropriate row
   choices.forEach((choice) => {
+    // pulls number from dataset assigned to each choice element within the HTML
     var number = choice.dataset["number"];
+    // prints appropriate choices for the question to the corresponding choice box
     choice.textContent = currentQuestion["choice" + number];
   });
 
+  // removes the question from the availableQuestions so they do not duplicate
   availableQuestions.splice(questionIndex, 1);
 
+  // user is able to click on answers
   acceptingAnswers = true;
 };
 
+/* Determine if the answer is true or false
+If "correct", a green highlight is applied to the box indicating correct,
+If "incorrect", a red  */
 choices.forEach((choice) => {
+  // for each choice add an event listener
   choice.addEventListener("click", (e) => {
-    if (!acceptingAnswers) return;
-
     acceptingAnswers = true;
+    // local variables
     var selectedChoice = e.target;
     var selectedAnswer = selectedChoice.dataset["number"];
-
     var classToApply =
       selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
+    // incorrect/correct response
     if (classToApply === "correct") {
       incrementScore(correctBonus);
     } else {
@@ -123,15 +153,19 @@ choices.forEach((choice) => {
 
     selectedChoice.parentElement.classList.add(classToApply);
 
+    // add 0.5 second delay so user can see the response
     setTimeout(() => {
       selectedChoice.parentElement.classList.remove(classToApply);
+      // switch to new question
       getNewQuestion();
     }, 500);
   });
 });
 
+// correct bonus function (called in if/else statement above)
 incrementScore = (num) => {
   score += num;
 };
 
+// calls startGame function
 startGame();
