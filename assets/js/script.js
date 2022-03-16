@@ -91,7 +91,7 @@ startTimer = () => {
     // If timer runs out clear the interval, and redirect the user to the score submission page
     if (timeLeft === 0) {
       clearInterval(timeInterval);
-      window.location.assign("/highscore.html");
+      window.location.assign("./highscore.html");
     }
   }
 };
@@ -104,7 +104,7 @@ getNewQuestion = () => {
     // save score as "mostRecentScore" in localStorage
     localStorage.setItem("mostRecentScore", score);
     // Takes user to the score submission page
-    return window.location.assign("/highscore.html");
+    return window.location.assign("./highscore.html");
   }
 
   // iterate the question array to pull the next question
