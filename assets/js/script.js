@@ -60,7 +60,6 @@ var timeLeft = 75;
 var availableQuestions = [];
 var correctBonus = 5;
 var maxQuestions = 5;
-var incorrectPenalty = -10;
 
 startGame = () => {
   questionCounter = 0;
@@ -78,8 +77,6 @@ startTimer = () => {
     timeLeft--;
     if (timeLeft === 0) {
       clearInterval(timeInterval);
-      saveHighScore();
-      submitHighscore();
       return;
     }
   }
@@ -121,7 +118,7 @@ choices.forEach((choice) => {
     if (classToApply === "correct") {
       incrementScore(correctBonus);
     } else {
-      startTimer(incorrectPenalty);
+      timeLeft = timeLeft - 10;
     }
 
     selectedChoice.parentElement.classList.add(classToApply);
@@ -135,17 +132,6 @@ choices.forEach((choice) => {
 
 incrementScore = (num) => {
   score += num;
-};
-
-var initials = document.getElementById("initials");
-var saveScoreBtn = document.getElementById("saveScoreBtn");
-initials.addEventListener("keyup", () => {
-  saveScoreBtn.disabled = !initials.value;
-});
-
-saveHighScore = (event) => {
-  console.log("clicked the save button");
-  event.preventDefault();
 };
 
 startGame();
