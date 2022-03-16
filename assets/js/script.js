@@ -87,6 +87,7 @@ startTimer = () => {
 
 getNewQuestion = () => {
   if (availableQuestions.length === 0 || timeLeft === 0) {
+    localStorage.setItem("mostRecentScore", score);
     // go to the end page
     return window.location.assign("/highscore.html");
   }
@@ -136,15 +137,15 @@ incrementScore = (num) => {
   score += num;
 };
 
+var initials = document.getElementById("initials");
+var saveScoreBtn = document.getElementById("saveScoreBtn");
+initials.addEventListener("keyup", () => {
+  saveScoreBtn.disabled = !initials.value;
+});
+
 saveHighScore = (event) => {
   console.log("clicked the save button");
   event.preventDefault();
 };
-
-var initials = document.getElementById("initials");
-
-initials.addEventListener("keyup", () => {
-  console.log(initials.value);
-});
 
 startGame();
