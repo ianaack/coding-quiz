@@ -104,7 +104,7 @@ getNewQuestion = () => {
     // save score as "mostRecentScore" in localStorage
     localStorage.setItem("mostRecentScore", score);
     // Takes user to the score submission page
-    return window.location.assign("./highscore.html");
+    return window.location.assign("highscore.html");
   }
 
   // iterate the question array to pull the next question
